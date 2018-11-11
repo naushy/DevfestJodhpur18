@@ -1,4 +1,5 @@
 # DevfestJodhpur18
+<<<<<<< HEAD
 GDG DevFests are large, community-run events that can offer speaker sessions across multiple product areas, ideathons, codelabs, and more. In 2018, the official DevFest Season runs from August 01st through November 30th.
 
 Registrations are over now. Find our agenda on website : http://devfestjodhpur.cf
@@ -6,3 +7,11 @@ Registrations are over now. Find our agenda on website : http://devfestjodhpur.c
 You will need a gmail account to access our many to many interaction platform in https://classroom.google.com with classroom code sent in confirmation email. You wont be able to join it using any other email address with specific domains.
 
 We will be promoting inclusion of female professionals in Jodhpur. Feel free to collaborate and connect in this Google's biggest. Keep checking for updated information.
+=======
+
+GDG DevFests are large, community-run events that can offer speaker sessions across multiple product areas, ideathons, codelabs, and more. In 2018, the official DevFest Season runs from August 01st through November 30th.
+
+We are excited to develop and host the website here http://devfestjodhpur.cf
+
+Feel free to collaborate and connect & improve this.
+>>>>>>> 366db94ad3ad771dc1eaa253ade86f437dff3624

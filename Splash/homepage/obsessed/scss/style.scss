@@ -1,0 +1,338 @@
+@import "compass/css3";
+
+$light: #3aa7a1;
+$semiLight: #359994;
+$dark: #32918c;
+$border: #2c807b;
+@mixin translateXY($x, $y) {
+  transform: translateX($x) translateY($y);
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: $light;
+  
+  @media (max-width: 79.99em) {
+    font-size: 80%;
+  }
+  @media (max-width: 67.99em) {
+    font-size: 70%;
+  }
+  @media (max-width: 59.99em) {
+    font-size: 60%;
+  }
+  @media (max-width: 47.99em) {
+    font-size: 50%;
+  }
+  @media (max-width: 39.99em) {
+    font-size: 35%;
+  }
+  @media (max-width: 29.99em) {
+    font-size: 25%;
+  }
+}
+.centered {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.cont {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 43.75em;
+  height: 37.5em;
+  
+  & * {
+    border: 0.4em solid $border;
+    position: absolute;
+  }
+  
+  .monitor {
+    bottom: 21.5em;
+    left: calc(25% - 2.5em);
+    height: 13em;
+    width: 20em;
+    
+    &:after {
+      content: "";
+      position: absolute;
+      top: calc(100% + 0.4em);
+      left: 50%;
+      transform: translateX(-50%);
+      height: 1.6em;
+      width: 6em;
+      border: 0.4em solid #2c807b;
+      border-radius: 0.4em;
+      background-color: $semiLight;
+    }
+    
+    .monitor-center {
+      @extend .centered;
+      width: 100%;
+      border-left: none;
+      border-right: none;
+      height: 9em;
+      border-width: 0.3em;
+      
+      .lines-and-block {
+        top: 50%;
+        left: calc(50% + 3em);
+        transform: translateX(-50%) translateY(-50%);
+        width: 9em;
+        height: 4em;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-width: 1em;
+        transition: border-color 0.3s;
+        transition-delay: 0.3s;
+        
+        &:before {
+          content: "";
+          position: absolute;
+          top: -1em;
+          left: -6.5em;
+          width: 5em;
+          height: calc(100% + 2em);
+          background-color: $border;
+          transition: background-color 0.3s;
+          transition-delay: 0.6s;
+        }
+        
+        &:after {
+          content: "";
+          position: absolute;
+          @extend .centered;
+          width: 100%;
+          height: 1em;
+          background-color: $border;
+          transition: background-color 0.3s;
+        }
+        
+        &.active {
+          border-top-color: #c9c9c9;
+          border-bottom-color: #c9c9c9;
+          
+          &:before {
+            background-color: #c9c9c9;
+          }
+          &:after {
+            background-color: #c9c9c9; 
+          }
+        }
+      }
+    }
+  }
+  
+  .cup {
+    bottom: 20em;
+    left: calc(75% - 3em);
+    width: 5em;
+    height: 7em;
+    border-radius: 0.7em 0.7em 1.4em 1.4em;
+    animation: magic 4s infinite;
+    
+    &:before {
+      content: "CSS";
+      position: absolute;
+      @extend .centered;
+      font-size: 1.5em;
+      color: #c9c9c9;
+    }
+    
+    &:after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 2em);
+      left: 100%;
+      height: 4em;
+      width: 2em;
+      border: 0.4em solid #2c807b;
+      border-left: none;
+      border-radius: 0.8em;
+    }
+  }
+  
+  .middle-top-part {
+    bottom: 18em;
+    left: calc(25% - 4.5em);
+    height: 2em;
+    width: calc(50% + 9em);
+    border-radius: 1em;
+  }
+  
+  .middle {
+    left: calc(25% - 3em);
+    bottom: 10em;
+    height: 8em;
+    width: calc(50% + 6em);
+    border-top: none;
+    background-color: $semiLight;
+    
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1.5em;
+      top: 0;
+      left: 0;
+      background-color: $dark;
+    }
+    
+    .center-part {
+      @extend .centered;
+      width: 80%;
+      height: 3.5em;
+      border-radius: 0.9em;
+      background-color: $light;
+      animation: anotherMagic 5s infinite;
+      
+      &:after {
+        content: "";
+        position: absolute;
+        @extend .centered;
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        border: 0.4em solid #2c807b;
+        background-color: $semiLight;
+      }
+    }
+  }
+  
+  .bottom {
+    bottom: 0;
+    width: 2em;
+    height: 10em;
+    border-top: none;
+    background-color: $semiLight;
+    
+    &.left {
+      left: calc(25% - 3em);
+    }
+    &.right {
+      left: calc(75% + 1em);
+    }
+  }
+}
+
+// translateY(-100%) not working in ie10+
+@keyframes magic {
+  0% {
+    transform: translateZ(0);
+  }
+  10% {
+    transform: translateZ(0);
+  }
+  33% {
+    transform: translateY(-7em);
+  }
+  35% {
+    transform: translateY(-7em) rotate(3deg);
+  }
+  37% {
+    transform: translateY(-7em) rotate(-3deg);
+  }
+  39% {
+    transform: translateY(-7em) rotate(6deg);
+  }
+  41% {
+    transform: translateY(-7em) rotate(-6deg);
+  }
+  43% {
+    transform: translateY(-7em) rotate(4deg);
+  }
+  45% {
+    transform: translateY(-7em) rotate(-4deg);
+  }
+  47% {
+    transform: translateY(-7em) rotate(7deg);
+  }
+  49% {
+    transform: translateY(-7em) rotate(-7deg);
+  }
+  51% {
+    transform: translateY(-7em) rotate(5deg);
+  }
+  53% {
+    transform: translateY(-7em) rotate(-5deg);
+  }
+  55% {
+    transform: translateY(-7em) rotate(3deg);
+  }
+  57% {
+    transform: translateY(-7em) rotate(-3deg);
+  }
+  59% {
+    transform: translateY(-7em);
+  }
+  90% {
+    transform: translateZ(0);
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}
+@keyframes anotherMagic {
+  0% {
+    @include translateXY(-50%, -50%);
+  }
+  31% {
+    @include translateXY(-50%, -50%);
+  }
+  33% {
+    @include translateXY(-52%, -51%);
+  }
+  35% {
+    @include translateXY(-48%, -49%);
+  }
+  37% {
+    @include translateXY(-53%, -52%);
+  }
+  39% {
+    @include translateXY(-47%, -48%);
+  }
+  41% {
+    @include translateXY(-51%, -50%);
+  }
+  43% {
+    @include translateXY(-49%, -50%);
+  }
+  45% {
+    @include translateXY(-53%, -52%);
+  }
+  47% {
+    @include translateXY(-47%, -48%);
+  }
+  49% {
+    @include translateXY(-50%, -53%);
+  }
+  51% {
+    @include translateXY(-50%, -47%);
+  }
+  53% {
+    @include translateXY(-52%, -51%);
+  }
+  55% {
+    @include translateXY(-48%, -49%);
+  }
+  57% {
+    @include translateXY(-51%, -52%);
+  }
+  59% {
+    @include translateXY(-49%, -48%);
+  }
+  61% {
+    @include translateXY(-52%, -51%);
+  }
+  63% {
+    @include translateXY(-50%, -50%);
+  }
+  100% {
+    @include translateXY(-50%, -50%);
+  }
+}
